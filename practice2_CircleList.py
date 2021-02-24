@@ -8,7 +8,7 @@ class SingleNode(object):
         # _next是下一个节点的标识
         self.next = None
 
-class SingleLinkList(object):
+class CircleLinkList(object):
     """单链表"""
     def __init__(self, node=None):
         self._head = node
@@ -16,7 +16,7 @@ class SingleLinkList(object):
             node.next = node
 
 
-    def is_empty(self): 
+    def is_empty(self):
         """链表是否为空"""
         return self._head == None
 
@@ -33,7 +33,7 @@ class SingleLinkList(object):
             curr = curr.next
 
         return length
-            
+
 
     def travel(self):
         """遍历整个链表"""
@@ -48,7 +48,7 @@ class SingleLinkList(object):
         print(curr.item)
 
 
-    def add(self, item): 
+    def add(self, item):
         """链表头部添加元素"""
         node = SingleNode(item)
         end = self._head
@@ -62,7 +62,7 @@ class SingleLinkList(object):
             end.next, node.next, self._head = node, self._head, node
 
 
-    def append(self, item): 
+    def append(self, item):
         """链表尾部添加元素"""
         node = SingleNode(item)
 
@@ -76,7 +76,7 @@ class SingleLinkList(object):
             end.next, node.next = node, self._head
 
 
-    def insert(self, pos, item): 
+    def insert(self, pos, item):
         """指定位置添加元素"""
         node = SingleNode(item)
 
@@ -94,7 +94,7 @@ class SingleLinkList(object):
             pre.next, node.next = node, pre.next
 
 
-    def search(self, item): 
+    def search(self, item):
         """查找节点是否存在"""
         curr = self._head
         if curr == None:
@@ -112,12 +112,12 @@ class SingleLinkList(object):
         if curr.item == item:
             print("{0} found in pos-{1}".format(item, pos))
             return pos
-            
+
         print("{0} not found".format(item))
         return -1
 
 
-    def remove(self, item): 
+    def remove(self, item):
         """删除节点"""
         if self._head == None:
             return False
@@ -151,7 +151,7 @@ class SingleLinkList(object):
 
 
 if __name__ == "__main__":
-    l = SingleLinkList()
+    l = CircleLinkList()
     print(l.length())
     l.travel()
 
